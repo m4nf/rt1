@@ -1,0 +1,29 @@
+#pwaInstallBanner{
+  position:fixed;
+  left:50%;
+  bottom:22px;
+  transform:translateX(-50%);
+  z-index:99999;
+  width:min(520px,calc(100% - 28px));
+  min-height:72px;
+  display:flex;
+  align-items:center;
+  gap:12px;
+  direction:rtl;
+  padding:10px 12px;
+  background:rgba(255,255,255,.98);
+  border:1px solid #dce8f1;
+  border-radius:18px;
+  box-shadow:0 18px 45px rgba(11,49,86,.18);
+  font-family:Cairo,Arial,sans-serif;
+  animation:pwaSlideUp .35s ease both;
+}
+#pwaInstallBanner .pwa-install-icon{width:48px;height:48px;flex:0 0 48px;border-radius:14px;background:#f3f8fc;display:flex;align-items:center;justify-content:center;overflow:hidden}
+#pwaInstallBanner .pwa-install-icon img{width:38px;height:38px;object-fit:contain}
+#pwaInstallBanner .pwa-install-content{min-width:0;flex:1;text-align:right}
+#pwaInstallBanner .pwa-install-content strong{display:block;color:#0b3156;font-size:13px;font-weight:800;line-height:1.5}
+#pwaInstallBanner .pwa-install-content span{display:block;color:#71849a;font-size:9px;line-height:1.7;margin-top:2px}
+#pwaInstallBanner #pwaInstallAction{border:0;background:linear-gradient(135deg,#0b3156,#1767a8);color:#fff;border-radius:11px;height:40px;padding:0 16px;font-family:inherit;font-size:11px;font-weight:800;cursor:pointer;white-space:nowrap}
+#pwaInstallBanner #pwaInstallClose{border:0;background:#f1f5f8;color:#6d7d8d;width:32px;height:32px;border-radius:10px;font-size:20px;line-height:1;cursor:pointer;flex:0 0 32px}
+@keyframes pwaSlideUp{from{opacity:0;transform:translate(-50%,14px)}to{opacity:1;transform:translate(-50%,0)}}
+@media(max-width:600px){#pwaInstallBanner{bottom:12px;width:calc(100% - 18px);border-radius:16px;padding:9px}.pwa-install-content strong{font-size:11px!important}.pwa-install-content span{font-size:8px!important}#pwaInstallBanner #pwaInstallAction{height:38px;padding:0 12px;font-size:10px}}

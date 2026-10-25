@@ -1,0 +1,224 @@
+/* ==========================================
+   Weekly Reports System
+   Theme
+========================================== */
+
+/* ==========================
+   Reset
+========================== */
+
+* {
+
+    margin: 0;
+
+    padding: 0;
+
+    box-sizing: border-box;
+
+}
+
+/* ==========================
+   HTML
+========================== */
+
+html {
+
+    scroll-behavior: smooth;
+
+}
+
+/* ==========================
+   Body
+========================== */
+
+body {
+
+    font-family: "Cairo", sans-serif;
+
+    background: var(--background);
+
+    color: var(--text);
+
+    direction: rtl;
+
+    overflow-x: hidden;
+
+    min-height: 100vh;
+
+    transition: var(--transition);
+
+    -webkit-font-smoothing: antialiased;
+
+    text-rendering: optimizeLegibility;
+
+}
+
+/* ==========================
+   Links
+========================== */
+
+a {
+
+    text-decoration: none;
+
+    color: inherit;
+
+}
+
+/* ==========================
+   Buttons
+========================== */
+
+button {
+
+    font-family: inherit;
+
+    border: none;
+
+    outline: none;
+
+    cursor: pointer;
+
+}
+
+/* ==========================
+   Inputs
+========================== */
+
+input,
+
+textarea,
+
+select,
+
+button {
+
+    font-family: inherit;
+
+}
+
+/* ==========================
+   Images
+========================== */
+
+img {
+
+    display: block;
+
+    max-width: 100%;
+
+}
+
+/* ==========================
+   Lists
+========================== */
+
+ul,
+
+ol {
+
+    list-style: none;
+
+}
+
+/* ==========================
+   App
+========================== */
+
+#app {
+
+    width: 100%;
+
+    min-height: 100vh;
+
+}
+
+/* ==========================
+   Container
+========================== */
+
+.container {
+
+    width: min(100% - 40px, var(--container));
+
+    margin-inline: auto;
+
+}
+
+/* ==========================
+   Scrollbar
+========================== */
+
+::-webkit-scrollbar {
+
+    width: 10px;
+
+}
+
+::-webkit-scrollbar-track {
+
+    background: var(--surface-2);
+
+}
+
+::-webkit-scrollbar-thumb {
+
+    background: var(--primary);
+
+    border-radius: 100px;
+
+}
+
+::-webkit-scrollbar-thumb:hover {
+
+    background: var(--primary-dark);
+
+}
+
+/* ==========================
+   Selection
+========================== */
+
+::selection {
+
+    background: var(--primary);
+
+    color: white;
+
+}
+
+/* ==========================
+   Focus
+========================== */
+
+:focus-visible {
+
+    outline: 3px solid rgba(79,70,229,.25);
+
+    outline-offset: 2px;
+
+}
+
+/* ==========================
+   Dark Theme
+========================== */
+
+body.dark {
+
+    --background: #0F172A;
+
+    --surface: #1E293B;
+
+    --surface-2: #273449;
+
+    --border: #334155;
+
+    --text: #F8FAFC;
+
+    --text-light: #CBD5E1;
+
+    --glass: rgba(30,41,59,.65);
+
+    --glass-border: rgba(255,255,255,.08);
+
+}

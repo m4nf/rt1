@@ -1,0 +1,56 @@
+/* ==========================================
+   Employee Dashboard - Dark Mode
+========================================== */
+body.dark{background:#0F172A!important;color:#F8FAFC!important}
+body.dark .employee-header,
+body.dark .card,
+body.dark .welcome-card,
+body.dark .stat-card{background:rgba(30,41,59,.96)!important;color:#F8FAFC!important;border-color:#334155!important}
+body.dark .employee-info h1,
+body.dark .card-heading h2,
+body.dark .upload-box h3,
+body.dark .report-week,
+body.dark .meta-item strong,
+body.dark .stat-card strong,
+body.dark .stat-copy strong,
+body.dark .welcome-copy h2,
+body.dark .success-content h2{color:#F8FAFC!important}
+body.dark .welcome-label,
+body.dark .eyebrow,
+body.dark .employee-info>span:last-child,
+body.dark .card-heading p,
+body.dark .upload-box p,
+body.dark .file-rule,
+body.dark .report-date,
+body.dark .report-file,
+body.dark .stat-card span,
+body.dark .stat-copy small,
+body.dark .welcome-copy p,
+body.dark .upload-state{color:#CBD5E1!important}
+body.dark .meta-item,
+body.dark .report-item,
+body.dark .upload-box,
+body.dark .upload-hint{background:#273449!important;border-color:#334155!important}
+body.dark .upload-box:hover{background:#334155!important}
+body.dark .employee-action-btn{background:#273449!important;color:#A5B4FC!important;border-color:#475569!important}
+body.dark .employee-action-btn:hover{background:#334155!important;border-color:#64748B!important}
+body.dark .employee-action-btn.theme-action{color:#F8FAFC!important}
+body.dark .employee-action-btn.logout-action{background:rgba(220,38,38,.16)!important;color:#FCA5A5!important;border-color:rgba(248,113,113,.35)!important}
+body.dark .employee-action-btn.logout-action:hover{background:rgba(220,38,38,.25)!important}
+body.dark .report-item:hover{background:#334155!important;border-color:#64748B!important}
+body.dark .empty{color:#94A3B8!important}
+body.dark .empty i{color:#64748B!important}
+body.dark .status-banner{background:#2A171B!important;border-color:#7F1D1D!important;color:#F8FAFC!important}
+body.dark .status-banner *{color:inherit}
+body.dark .success-card{background:linear-gradient(135deg,#13291D,#1E293B)!important;border-color:#166534!important}
+body.dark .success-content p{color:#CBD5E1!important}
+body.dark .success-content small{color:#94A3B8!important}
+body.dark .view-btn{background:#312E81!important;color:#C7D2FE!important}
+body.dark .view-btn:hover{background:#4F46E5!important;color:#fff!important}
+body.dark .upload-icon{background:#3F1D2A!important}
+body.dark .upload-heading-icon{background:#312E81!important}
+body.dark .reports-heading-icon{background:#12352F!important}
+body.dark .stat-icon.blue{background:#1E3A5F!important;color:#93C5FD!important}
+body.dark .stat-icon.green{background:#12352F!important;color:#6EE7B7!important}
+body.dark .stat-icon.gold{background:#3A2E16!important;color:#FCD34D!important}
+body.dark .stat-icon{color:#A5B4FC!important}

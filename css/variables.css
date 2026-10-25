@@ -1,0 +1,107 @@
+/* ==========================================
+   Weekly Reports System
+   CSS Variables
+========================================== */
+
+:root {
+
+    /* ==========================
+       Primary Colors
+    ========================== */
+
+    --primary: #4F46E5;
+    --primary-light: #6366F1;
+    --primary-dark: #3730A3;
+
+    --secondary: #7C3AED;
+
+    --success: #16A34A;
+
+    --warning: #F59E0B;
+
+    --danger: #DC2626;
+
+    --info: #0EA5E9;
+
+    /* ==========================
+       Light Theme
+    ========================== */
+
+    --background: #F5F7FB;
+
+    --surface: #FFFFFF;
+
+    --surface-2: #F8FAFC;
+
+    --border: #E5E7EB;
+
+    /* ==========================
+       Text Colors
+    ========================== */
+
+    --text: #111827;
+
+    --text-light: #6B7280;
+
+    --text-white: #FFFFFF;
+
+    /* ==========================
+       Radius
+    ========================== */
+
+    --radius-xs: 8px;
+
+    --radius-sm: 12px;
+
+    --radius-md: 18px;
+
+    --radius-lg: 24px;
+
+    --radius-xl: 32px;
+
+    /* ==========================
+       Shadows
+    ========================== */
+
+    --shadow-sm:
+        0 2px 8px rgba(0,0,0,.05);
+
+    --shadow-md:
+        0 8px 25px rgba(0,0,0,.08);
+
+    --shadow-lg:
+        0 15px 45px rgba(0,0,0,.12);
+
+    /* ==========================
+       Glass Effect
+    ========================== */
+
+    --glass:
+        rgba(255,255,255,.65);
+
+    --glass-border:
+        rgba(255,255,255,.45);
+
+    --blur: blur(18px);
+
+    /* ==========================
+       Animation
+    ========================== */
+
+    --transition:
+        .30s ease;
+
+    --transition-fast:
+        .18s ease;
+
+    /* ==========================
+       Sizes
+    ========================== */
+
+    --container: 1400px;
+
+    --login-width: 460px;
+
+    --header-height: 72px;
+
+}

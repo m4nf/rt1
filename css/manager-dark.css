@@ -1,0 +1,33 @@
+/* ==========================================
+   Manager Dashboard - Dark Theme
+========================================== */
+
+body.dark .header,
+body.dark #content,
+body.dark .menu-card,
+body.dark .panel-card,
+body.dark .stat-card,
+body.dark .setting-card,
+body.dark .modal-card {
+    background: var(--surface);
+    color: var(--text);
+}
+
+body.dark table { background: var(--surface); color: var(--text); }
+body.dark tbody td { border-bottom-color: var(--border); color: var(--text); }
+body.dark tbody tr:hover { background: var(--surface-2); }
+body.dark .modal-card { background: var(--surface); }
+body.dark .form-group input,
+body.dark .form-group select,
+body.dark .filters input,
+body.dark .filters select,
+body.dark .setting-card input,
+body.dark .setting-card select {
+    background: var(--surface-2);
+    color: var(--text);
+    border-color: var(--border);
+}
+body.dark .cancel-btn { background: var(--surface-2); color: var(--text); }
+body.dark .pdf-modal-card { background: var(--surface); color: var(--text); }
+body.dark .header-action-btn.logout-action { background:#3b1f23; color:#fca5a5; }
+body.dark .header-action-btn.logout-action:hover { background:#dc2626; color:#fff; }

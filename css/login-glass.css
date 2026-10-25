@@ -1,0 +1,18 @@
+/* W1 Login - glassmorphism layer */
+.login-page{background:#102b75 url('../assets/lm2.png') center/cover no-repeat!important}
+.login-page:before{background:linear-gradient(135deg,rgba(7,43,103,.18),rgba(10,39,100,.08))!important}
+.login-card{background:rgba(255,255,255,.26)!important;border:1px solid rgba(255,255,255,.58)!important;border-radius:32px!important;box-shadow:0 28px 90px rgba(0,0,0,.22),inset 0 1px 0 rgba(255,255,255,.55)!important;backdrop-filter:blur(18px) saturate(125%)!important;-webkit-backdrop-filter:blur(18px) saturate(125%)!important}
+.card-logo{background:transparent!important;padding:0!important;box-shadow:none!important}
+.card-logo img{filter:drop-shadow(0 10px 18px rgba(8,47,82,.16))!important}
+.login-kicker,.login-title,.login-subtitle,.remember-row,.contact-divider,.security-note,.login-footer{text-shadow:0 1px 10px rgba(255,255,255,.65)!important}
+.login-kicker{color:#0b5d8d!important}
+.login-title{color:#082f52!important}
+.login-subtitle{color:#5f7890!important;font-weight:600!important}
+.input-group input{border-color:rgba(255,255,255,.62)!important;background:rgba(235,244,255,.58)!important;box-shadow:inset 0 1px 2px rgba(255,255,255,.25),0 5px 18px rgba(8,47,82,.06)!important;backdrop-filter:blur(8px)!important;-webkit-backdrop-filter:blur(8px)!important}
+.input-group input:focus{border-color:rgba(23,99,143,.7)!important;background:rgba(255,255,255,.72)!important}
+.login-btn{background:linear-gradient(135deg,#082f52,#126d9d)!important;box-shadow:0 14px 30px rgba(8,47,82,.24),inset 0 1px 0 rgba(255,255,255,.18)!important}
+.contact-divider:before,.contact-divider:after{background:rgba(255,255,255,.68)!important}
+.developer-contact{border-color:rgba(174,235,235,.72)!important;background:rgba(239,253,252,.43)!important;backdrop-filter:blur(10px)!important;-webkit-backdrop-filter:blur(10px)!important;box-shadow:inset 0 1px 0 rgba(255,255,255,.45)!important}
+.security-note{border-top-color:rgba(255,255,255,.55)!important;color:#58728a!important;font-weight:600!important}
+.login-footer{color:#5e7890!important;font-weight:600!important}
+@media(max-width:430px){.login-card{background:rgba(255,255,255,.28)!important;border-radius:23px!important;backdrop-filter:blur(15px) saturate(120%)!important;-webkit-backdrop-filter:blur(15px) saturate(120%)!important}}

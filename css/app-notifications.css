@@ -1,0 +1,105 @@
+/* ==========================================
+   In-App Dialogs
+========================================== */
+.app-notification-layer{
+    position:fixed;
+    inset:0;
+    z-index:100000;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:20px;
+    background:rgba(15,23,42,.48);
+    backdrop-filter:blur(8px);
+    -webkit-backdrop-filter:blur(8px);
+    opacity:0;
+    visibility:hidden;
+    pointer-events:none;
+    transition:opacity .22s ease,visibility .22s ease;
+}
+.app-notification-layer.show{
+    opacity:1;
+    visibility:visible;
+    pointer-events:auto;
+}
+.app-notification{
+    position:relative;
+    width:min(430px,100%);
+    background:var(--surface,#fff);
+    color:var(--text,#172033);
+    border:1px solid var(--border,#e5e7eb);
+    border-radius:24px;
+    box-shadow:0 25px 80px rgba(15,23,42,.24);
+    padding:32px 26px 24px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    text-align:center;
+    direction:rtl;
+    transform:translateY(12px) scale(.97);
+    opacity:0;
+    transition:transform .22s ease,opacity .22s ease;
+}
+.app-notification.show{transform:translateY(0) scale(1);opacity:1}
+.app-notification-icon{
+    width:70px;
+    height:70px;
+    margin:0 auto 17px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:50%;
+    background:#ecfdf5;
+    color:#059669;
+    font-size:34px;
+}
+.app-notification-icon.error{background:#fef2f2;color:#dc2626}
+.app-notification-content{width:100%;}
+.app-notification-title{
+    display:block;
+    font-size:22px;
+    font-weight:800;
+    margin-bottom:8px;
+}
+.app-notification-message{
+    display:block;
+    max-width:340px;
+    margin:0 auto 22px;
+    color:var(--text-light,#64748b);
+    font-size:14px;
+    line-height:1.8;
+}
+.app-notification-close{
+    position:absolute;
+    top:14px;
+    left:14px;
+    width:36px;
+    height:36px;
+    border:0;
+    border-radius:11px;
+    background:var(--surface-2,#f3f4f6);
+    color:var(--text-light,#64748b);
+    cursor:pointer;
+    font-size:15px;
+}
+.app-notification-close:hover{background:#e5e7eb;color:var(--text)}
+.app-notification-ok{
+    min-width:130px;
+    border:0;
+    border-radius:13px;
+    padding:12px 24px;
+    background:var(--primary,#0b3156);
+    color:#fff;
+    font-family:inherit;
+    font-size:14px;
+    font-weight:700;
+    cursor:pointer;
+    transition:transform .15s ease,filter .15s ease;
+}
+.app-notification-ok:hover{filter:brightness(.95);transform:translateY(-1px)}
+@media(max-width:600px){
+    .app-notification-layer{padding:14px 12px}
+    .app-notification{padding:30px 20px 22px;border-radius:20px}
+    .app-notification-icon{width:62px;height:62px;font-size:30px}
+    .app-notification-title{font-size:20px}
+}

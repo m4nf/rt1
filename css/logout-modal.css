@@ -1,0 +1,13 @@
+/* In-app confirmation modal */
+.app-confirm-modal{position:fixed;inset:0;z-index:10000;display:flex;align-items:center;justify-content:center;padding:20px;background:rgba(8,20,40,.55);backdrop-filter:blur(9px);opacity:0;visibility:hidden;transition:.25s ease}
+.app-confirm-modal.show{opacity:1;visibility:visible}
+.app-confirm-card{width:min(430px,100%);background:#fff;border:1px solid rgba(255,255,255,.7);border-radius:26px;padding:28px;box-shadow:0 28px 80px rgba(0,0,0,.25);text-align:center;transform:translateY(14px) scale(.97);transition:.25s ease;font-family:'Cairo',sans-serif}
+.app-confirm-modal.show .app-confirm-card{transform:none}
+.app-confirm-icon{width:68px;height:68px;margin:0 auto 18px;border-radius:22px;display:flex;align-items:center;justify-content:center;background:#fff1f2;color:#dc2626;font-size:27px}
+.app-confirm-card h3{margin:0 0 8px;color:#111827;font-size:21px;font-weight:800}
+.app-confirm-card p{margin:0;color:#6b7280;font-size:14px;line-height:1.8}
+.app-confirm-actions{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:24px}
+.app-confirm-actions button{height:50px;border:0;border-radius:14px;font-family:inherit;font-weight:800;font-size:14px;cursor:pointer;transition:.2s}
+.app-confirm-cancel{background:#f1f5f9;color:#334155}.app-confirm-cancel:hover{background:#e2e8f0}
+.app-confirm-ok{background:#dc2626;color:#fff}.app-confirm-ok:hover{background:#b91c1c;transform:translateY(-1px)}
+@media(max-width:520px){.app-confirm-card{padding:24px;border-radius:22px}.app-confirm-actions{grid-template-columns:1fr}.app-confirm-ok{order:-1}}

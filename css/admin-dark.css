@@ -1,0 +1,102 @@
+/* ==========================================
+   Admin Dashboard - Dark Mode Completion
+========================================== */
+
+body.dark .header,
+body.dark #content,
+body.dark .menu-card,
+body.dark .stat-card,
+body.dark .panel-card,
+body.dark .setting-card,
+body.dark .toolbar,
+body.dark .quick-actions button {
+    background: var(--surface);
+    color: var(--text);
+}
+
+body.dark .menu-card:not(.active),
+body.dark .setting-card,
+body.dark .toolbar,
+body.dark .quick-actions button,
+body.dark .intro-date,
+body.dark .panel-head > i {
+    background: var(--surface-2);
+}
+
+body.dark table,
+body.dark .modal-card,
+body.dark .pdf-modal-card {
+    background: var(--surface);
+    color: var(--text);
+}
+
+body.dark tbody td {
+    border-bottom-color: var(--border);
+}
+
+body.dark tbody tr:hover {
+    background: var(--surface-2);
+}
+
+body.dark .form-group input,
+body.dark .form-group select,
+body.dark .setting-card input,
+body.dark .setting-card select,
+body.dark .filters input,
+body.dark .filters select {
+    background: var(--surface-2);
+    color: var(--text);
+    border-color: var(--border);
+}
+
+body.dark .cancel-btn {
+    background: var(--surface-2);
+    color: var(--text);
+}
+
+body.dark .header-left button {
+    background: var(--surface-2);
+    color: var(--primary-light);
+}
+
+body.dark .header-left button:hover {
+    background: var(--primary);
+    color: #fff;
+}
+
+body.dark .delete-btn {
+    background: rgba(220,38,38,.14);
+    color: #f87171;
+}
+
+body.dark .status.active {
+    background: rgba(22,163,74,.18);
+    color: #86efac;
+}
+
+body.dark .status.stop {
+    background: rgba(220,38,38,.18);
+    color: #fca5a5;
+}
+
+body.dark .empty-card,
+body.dark .loading-state {
+    color: var(--text-light);
+}
+
+body.dark .stat-icon.blue { background: rgba(79,70,229,.20); }
+body.dark .stat-icon.purple { background: rgba(147,51,234,.20); }
+body.dark .stat-icon.green { background: rgba(5,150,105,.20); }
+body.dark .stat-icon.orange { background: rgba(234,88,12,.20); }
+
+body.dark .progress {
+    background: #334155;
+}
+
+body.dark .view-btn {
+    background: var(--primary);
+}
+
+body.dark .view-btn:hover {
+    background: var(--primary-light);
+}

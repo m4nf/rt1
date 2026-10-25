@@ -1,0 +1,20 @@
+/* In-app notifications for the General Manager */
+#appNoticeModal{position:fixed;inset:0;z-index:99999;display:none;direction:rtl;font-family:"Cairo",sans-serif}
+#appNoticeModal.show{display:block}
+.app-notice-backdrop{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;padding:20px;background:rgba(7,24,43,.58);backdrop-filter:blur(7px);-webkit-backdrop-filter:blur(7px);animation:appNoticeFade .18s ease}
+.app-notice-card{position:relative;width:min(430px,100%);background:var(--surface,#fff);border:1px solid rgba(11,49,86,.08);border-radius:26px;padding:30px 26px 24px;box-shadow:0 24px 70px rgba(7,24,43,.24);text-align:center;transform:translateY(8px) scale(.98);animation:appNoticeIn .22s ease forwards}
+.app-notice-icon{width:72px;height:72px;margin:0 auto 16px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:34px;background:rgba(22,163,74,.11);color:#16a34a}
+#appNoticeModal.error .app-notice-icon{background:rgba(220,38,38,.11);color:#dc2626}
+.app-notice-content{padding:0 8px}
+.app-notice-label{display:block;font-size:13px;font-weight:700;color:#16a34a;margin-bottom:4px}
+#appNoticeModal.error .app-notice-label{color:#dc2626}
+.app-notice-content h3{margin:0 0 8px;color:var(--text,#172033);font-size:21px;font-weight:800}
+.app-notice-content p{margin:0;color:var(--muted,#6b7280);font-size:15px;line-height:1.8}
+.app-notice-close{position:absolute;top:14px;left:14px;width:38px;height:38px;border:0;border-radius:12px;background:transparent;color:#8b95a5;font-size:18px;cursor:pointer}
+.app-notice-close:hover{background:rgba(11,49,86,.07);color:var(--text,#172033)}
+.app-notice-ok{margin-top:22px;min-width:130px;border:0;border-radius:13px;padding:11px 22px;background:var(--primary,#0b3156);color:#fff;font:inherit;font-weight:700;cursor:pointer;box-shadow:0 8px 18px rgba(11,49,86,.18)}
+.app-notice-ok:active{transform:translateY(1px)}
+body.app-notice-open{overflow:hidden}
+@keyframes appNoticeFade{from{opacity:0}to{opacity:1}}
+@keyframes appNoticeIn{to{transform:translateY(0) scale(1)}}
+@media(max-width:520px){.app-notice-card{border-radius:22px;padding:27px 19px 21px}.app-notice-icon{width:64px;height:64px;font-size:30px}.app-notice-content h3{font-size:19px}.app-notice-content p{font-size:14px}}

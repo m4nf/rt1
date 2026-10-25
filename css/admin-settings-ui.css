@@ -1,0 +1,96 @@
+/* ==========================================
+   Admin Settings - In-App Feedback Modal
+========================================== */
+.settings-feedback-modal{
+    position:fixed;
+    inset:0;
+    z-index:10050;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:20px;
+    background:rgba(15,23,42,.48);
+    backdrop-filter:blur(8px);
+    -webkit-backdrop-filter:blur(8px);
+    opacity:0;
+    visibility:hidden;
+    pointer-events:none;
+    transition:opacity .22s ease,visibility .22s ease;
+}
+.settings-feedback-modal.show{
+    opacity:1;
+    visibility:visible;
+    pointer-events:auto;
+}
+.settings-feedback-card{
+    position:relative;
+    width:min(430px,100%);
+    padding:32px 28px 26px;
+    text-align:center;
+    direction:rtl;
+    background:var(--surface,#fff);
+    border:1px solid var(--border,#e5e7eb);
+    border-radius:24px;
+    box-shadow:0 25px 80px rgba(15,23,42,.24);
+    transform:translateY(12px) scale(.97);
+    transition:transform .22s ease;
+}
+.settings-feedback-modal.show .settings-feedback-card{transform:translateY(0) scale(1)}
+.settings-feedback-close{
+    position:absolute;
+    top:14px;
+    left:14px;
+    width:36px;
+    height:36px;
+    border:0;
+    border-radius:11px;
+    background:var(--surface-2,#f3f4f6);
+    color:var(--text-light,#64748b);
+    cursor:pointer;
+    font-size:15px;
+}
+.settings-feedback-close:hover{background:#e5e7eb;color:var(--text)}
+.settings-feedback-icon{
+    width:70px;
+    height:70px;
+    margin:2px auto 18px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:50%;
+    background:#ecfdf5;
+    color:#059669;
+    font-size:34px;
+}
+.settings-feedback-icon.error{background:#fef2f2;color:#dc2626}
+.settings-feedback-card h3{
+    margin:0 0 9px;
+    color:var(--text,#0f172a);
+    font-size:22px;
+    font-weight:800;
+}
+.settings-feedback-card p{
+    margin:0 auto 22px;
+    max-width:340px;
+    color:var(--text-light,#64748b);
+    font-size:14px;
+    line-height:1.8;
+}
+.settings-feedback-btn{
+    min-width:130px;
+    border:0;
+    border-radius:13px;
+    padding:12px 24px;
+    background:var(--primary,#0b3156);
+    color:#fff;
+    font-family:inherit;
+    font-size:14px;
+    font-weight:700;
+    cursor:pointer;
+}
+.settings-feedback-btn:hover{filter:brightness(.95);transform:translateY(-1px)}
+@media(max-width:600px){
+    .settings-feedback-card{padding:30px 20px 22px;border-radius:20px}
+    .settings-feedback-icon{width:62px;height:62px;font-size:30px}
+    .settings-feedback-card h3{font-size:20px}
+}

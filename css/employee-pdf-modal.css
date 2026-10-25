@@ -1,0 +1,115 @@
+/* ==========================================
+   Employee PDF Viewer
+   Opens reports inside the app
+========================================== */
+
+.employee-pdf-modal{
+    position:fixed;
+    inset:0;
+    z-index:10000;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:14px;
+    background:rgba(15,23,42,.62);
+    backdrop-filter:blur(10px);
+    opacity:0;
+    visibility:hidden;
+    pointer-events:none;
+    transition:.25s ease;
+}
+
+.employee-pdf-modal.show{
+    opacity:1;
+    visibility:visible;
+    pointer-events:auto;
+}
+
+.employee-pdf-card{
+    width:min(1100px,100%);
+    height:min(92vh,900px);
+    background:#fff;
+    border-radius:22px;
+    overflow:hidden;
+    box-shadow:0 25px 80px rgba(0,0,0,.28);
+    display:flex;
+    flex-direction:column;
+    transform:translateY(12px) scale(.98);
+    transition:.25s ease;
+}
+
+.employee-pdf-modal.show .employee-pdf-card{
+    transform:translateY(0) scale(1);
+}
+
+.employee-pdf-header{
+    min-height:64px;
+    padding:10px 16px 10px 12px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:14px;
+    border-bottom:1px solid #e5e7eb;
+    background:#fff;
+}
+
+.employee-pdf-title{
+    min-width:0;
+    display:flex;
+    flex-direction:column;
+    gap:2px;
+}
+
+.employee-pdf-title strong{
+    color:#0f172a;
+    font-size:16px;
+    font-weight:800;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+}
+
+.employee-pdf-title span{
+    color:#64748b;
+    font-size:12px;
+}
+
+.employee-pdf-close{
+    flex:0 0 auto;
+    width:42px;
+    height:42px;
+    border:0;
+    border-radius:12px;
+    background:#f1f5f9;
+    color:#334155;
+    cursor:pointer;
+    font-size:18px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    transition:.2s ease;
+}
+
+.employee-pdf-close:hover{
+    background:#fee2e2;
+    color:#dc2626;
+}
+
+#employeePdfFrame{
+    width:100%;
+    flex:1;
+    min-height:0;
+    border:0;
+    background:#f8fafc;
+}
+
+@media(max-width:600px){
+    .employee-pdf-modal{padding:0}
+    .employee-pdf-card{
+        width:100%;
+        height:100%;
+        border-radius:0;
+    }
+    .employee-pdf-header{min-height:58px;padding:8px 10px 8px 8px}
+    .employee-pdf-close{width:40px;height:40px}
+}
