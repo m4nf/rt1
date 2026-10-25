@@ -293,9 +293,9 @@ async function employeesPage(){
     employeesData=Array.isArray(result.employees)?result.employees:[];
     const departments=[...new Map(employeesData.map(e=>[normalizeDepartment(e.department),String(e.department||"").trim()]).filter(x=>x[0])).values()];
 
-    content.innerHTML=`<div class="section-title"><div><span class="eyebrow">إدارة النظام</span><h2><i class="fa-solid fa-users"></i> الموظفون</h2><p>إدارة المستخدمين والصلاحيات والحالات.</p></div><button class="primary-btn" id="addEmployeeBtn"><i class="fa-solid fa-plus"></i> إضافة مستخدم</button></div>
-    <div class="toolbar"><div class="search-box"><i class="fa-solid fa-magnifying-glass"></i><input id="employeeSearch" placeholder="بحث باسم الموظف أو اسم المستخدم أو القسم"></div><select id="employeeDepartment"><option value="">كل الأقسام</option>${departments.map(d=>`<option value="${esc(d)}">${esc(d)}</option>`).join("")}</select><select id="employeeRole"><option value="">كل الصلاحيات</option><option value="employee">موظف</option><option value="manager">مدير قسم</option><option value="admin">مدير عام</option></select></div>
-    <div class="table-container"><table><thead><tr><th>#</th><th>المرحلة</th><th>القسم</th><th>اسم المستخدم</th><th>الصلاحية</th><th>الحالة</th><th>الإجراءات</th></tr></thead><tbody id="employeesBody"></tbody></table></div>`;
+    content.innerHTML=`<div class="section-title"><div><span class="eyebrow">إدارة النظام</span><h2><i class="fa-solid fa-users"></i> المعلمون</h2><p>إدارة المعلمين وحسابات الدخول والحالات.</p></div><button class="primary-btn" id="addEmployeeBtn"><i class="fa-solid fa-plus"></i> إضافة معلم</button></div>
+    <div class="toolbar"><div class="search-box"><i class="fa-solid fa-magnifying-glass"></i><input id="employeeSearch" placeholder="بحث باسم المعلم أو اسم المستخدم أو القسم"></div><select id="employeeDepartment"><option value="">كل الأقسام</option>${departments.map(d=>`<option value="${esc(d)}">${esc(d)}</option>`).join("")}</select><select id="employeeRole"><option value="">كل الصلاحيات</option><option value="employee">موظف</option><option value="manager">مدير قسم</option><option value="admin">مدير عام</option></select></div>
+    <div class="table-container"><table><thead><tr><th>#</th><th>اسم المعلم</th><th>المرحلة</th><th>القسم</th><th>اسم المستخدم</th><th>الصلاحية</th><th>الحالة</th><th>الإجراءات</th></tr></thead><tbody id="employeesBody"></tbody></table></div>`;
 
     document.getElementById("addEmployeeBtn").onclick=()=>openEmployeeModal();
     const render=()=>{
@@ -306,7 +306,7 @@ async function employeesPage(){
             const text=normalizeText(`${e.name||""} ${e.stage||""} ${e.username||""} ${e.department||""} ${e.jobTitle||""}`);
             return (!q||text.includes(q)) && (!dept||normalizeDepartment(e.department)===dept) && (!role||normalizeRole(e.role)===role);
         });
-        document.getElementById("employeesBody").innerHTML=list.length?list.map(e=>`<tr><td>${esc(e.id)}</td><td><strong>${esc(e.stage||"—")}</strong></td><td>${esc(e.department||e.jobTitle||"—")}</td><td dir="ltr">${esc(e.username)}</td><td><span class="role-badge ${normalizeRole(e.role)}">${roleLabel(e.role)}</span></td><td><span class="status ${isActive(e.status)?"active":"stop"}">${isActive(e.status)?"نشط":"موقوف"}</span></td><td><div class="actions"><button class="icon-btn edit-btn" onclick="editEmployee(${JSON.stringify(e.id)})"><i class="fa-solid fa-pen"></i></button><button class="icon-btn delete-btn" onclick="deleteEmployee(${JSON.stringify(e.id)})"><i class="fa-solid fa-trash"></i></button></div></td></tr>`).join(""):`<tr><td colspan="7"><div class="table-empty">لا توجد نتائج مطابقة</div></td></tr>`;
+        document.getElementById("employeesBody").innerHTML=list.length?list.map(e=>`<tr><td>${esc(e.id)}</td><td><strong>${esc(e.name||"—")}</strong></td><td>${esc(e.stage||"—")}</td><td>${esc(e.department||e.jobTitle||"—")}</td><td dir="ltr">${esc(e.username)}</td><td><span class="role-badge ${normalizeRole(e.role)}">${roleLabel(e.role)}</span></td><td><span class="status ${isActive(e.status)?"active":"stop"}">${isActive(e.status)?"نشط":"موقوف"}</span></td><td><div class="actions"><button class="icon-btn edit-btn" onclick="editEmployee(${JSON.stringify(e.id)})"><i class="fa-solid fa-pen"></i></button><button class="icon-btn delete-btn" onclick="deleteEmployee(${JSON.stringify(e.id)})"><i class="fa-solid fa-trash"></i></button></div></td></tr>`).join(""):`<tr><td colspan="8"><div class="table-empty">لا توجد نتائج مطابقة</div></td></tr>`;
     };
     document.getElementById("employeeSearch").addEventListener("input",render);
     document.getElementById("employeeDepartment").addEventListener("change",render);
@@ -318,8 +318,8 @@ function openEmployeeModal(){
     editingEmployeeId=null;
     const modal=document.getElementById("employeeModal");
     if(!modal) return;
-    const title=document.querySelector(".modal-title"); if(title) title.textContent="إضافة مستخدم";
-    ["empStage","empDepartment","empUsername","empPassword"].forEach(id=>{const el=document.getElementById(id);if(el)el.value="";});
+    const title=document.querySelector(".modal-title"); if(title) title.textContent="إضافة معلم";
+    ["empName","empStage","empDepartment","empUsername","empPassword"].forEach(id=>{const el=document.getElementById(id);if(el)el.value="";});
     modal.classList.add("show");
 }
 
@@ -374,17 +374,18 @@ document.addEventListener("click",e=>{
 
 async function saveEmployee(){
     const get=id=>document.getElementById(id);
+    const name=get("empName")?.value.trim()||"";
     const stage=get("empStage")?.value.trim()||"";
     const department=get("empDepartment")?.value.trim()||"";
     const username=get("empUsername")?.value.trim()||"";
     const password=get("empPassword")?.value||"";
 
-    if(!stage||!department||!username){
-        alert("يرجى اختيار المرحلة والقسم وإدخال اسم المستخدم.");
+    if(!name||!stage||!department||!username){
+        alert("يرجى إدخال اسم المعلم واختيار المرحلة والقسم وكتابة اسم المستخدم.");
         return;
     }
     if(editingEmployeeId===null&&!password){
-        alert("يرجى إدخال الرقم السري للموظف الجديد.");
+        alert("يرجى إدخال الرقم السري للمعلم الجديد.");
         return;
     }
     if(password && password.length<12){
@@ -397,13 +398,12 @@ async function saveEmployee(){
     try{
         const action=editingEmployeeId!==null?"updateEmployee":"addEmployee";
         /*
-         * لا يوجد حقل اسم شخصي في النموذج الحالي؛ لذلك يُستخدم اسم المستخدم
-         * كاسم عرض مؤقت للتوافق مع واجهة API الحالية، مع إرسال المرحلة والقسم
-         * كلٌّ على حدة. يجب أن تحفظ الواجهة الخلفية قيمة stage في عمود المرحلة.
+         * نرسل اسم المعلم منفصلًا عن اسم المستخدم، مع المرحلة والقسم.
+         * يجب أن تحفظ الواجهة الخلفية هذه الحقول في الأعمدة المقابلة.
          */
         const payload={
             id:editingEmployeeId,
-            name:username,
+            name,
             stage,
             department,
             jobTitle:department,
@@ -416,7 +416,7 @@ async function saveEmployee(){
         get("employeeModal")?.classList.remove("show");
         editingEmployeeId=null;
         await employeesPage();
-        alert(action==="addEmployee"?"تمت إضافة المستخدم بنجاح":"تم تحديث المستخدم بنجاح");
+        alert(action==="addEmployee"?"تمت إضافة المعلم بنجاح":"تم تحديث بيانات المعلم بنجاح");
     }catch(err){
         console.error(err);
         alert("حدث خطأ أثناء حفظ المستخدم: "+(err.message||err));
@@ -430,19 +430,20 @@ function editEmployee(id){
     if(!employee)return;
     editingEmployeeId=employee.id;
     const set=(id,v)=>{const el=document.getElementById(id);if(el)el.value=v??"";};
+    set("empName",employee.name);
     set("empStage",employee.stage);
     set("empDepartment",employee.department||employee.jobTitle);
     set("empUsername",employee.username);
     set("empPassword","");
-    const title=document.querySelector(".modal-title");if(title)title.textContent="تعديل المستخدم";
+    const title=document.querySelector(".modal-title");if(title)title.textContent="تعديل بيانات المعلم";
     document.getElementById("employeeModal")?.classList.add("show");
 }
 window.editEmployee=editEmployee;
 
 async function deleteEmployee(id){
-    if(!confirm("هل تريد حذف هذا الموظف؟"))return;
+    if(!confirm("هل تريد حذف هذا المعلم؟"))return;
     const result=await api("deleteEmployee",{id});
-    if(result.success){await employeesPage();alert("تم حذف الموظف بنجاح");}else alert(result.message||"تعذر حذف الموظف");
+    if(result.success){await employeesPage();alert("تم حذف المعلم بنجاح");}else alert(result.message||"تعذر حذف الموظف");
 }
 window.deleteEmployee=deleteEmployee;
 
