@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>مدير القسم</title>
+<link rel="preconnect" href="https://script.google.com"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&display=swap" rel="stylesheet"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"><link rel="stylesheet" href="css/variables.css"><link rel="stylesheet" href="css/theme.css"><link rel="stylesheet" href="css/animations.css"><link rel="stylesheet" href="css/manager.css"><link rel="stylesheet" href="css/manager-dark.css?v=1"><link rel="stylesheet" href="css/manager-reports-home.css?v=1"><link rel="stylesheet" href="css/logout-modal.css">
+<style>
+.header-actions{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.header-action-btn{width:46px;height:46px;min-width:46px;padding:0;border-radius:14px;border:0;background:var(--surface-2);color:var(--primary);display:inline-flex;align-items:center;justify-content:center;cursor:pointer;transition:var(--transition);font:inherit}
+.header-action-btn:hover{background:var(--primary);color:#fff;transform:translateY(-2px)}
+.header-action-btn:disabled{opacity:.65;cursor:wait;transform:none}
+.header-action-btn.is-refreshing{cursor:wait!important}
+.header-action-btn.is-refreshing i{display:inline-block!important;animation:managerRefreshSpin .8s linear infinite!important;transform-origin:center center!important}
+.header-action-btn.logout-action{background:#FEF2F2;color:#DC2626}
+.header-action-btn.logout-action:hover{background:#DC2626;color:#fff}
+@keyframes managerRefreshSpin{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}
+@media(max-width:900px){.header-actions{width:100%;justify-content:flex-end}.header-action-btn{width:44px;height:44px;min-width:44px}}
+</style>
+</head>
+<body>
+<div class="dashboard">
+<header class="header"><div class="header-right"><img src="assets/logo.png" class="logo" alt="Logo"><div><h2>لوحة مدير القسم</h2><span id="managerName">مدير القسم</span><small id="departmentName">القسم</small></div></div><div class="header-left"><div id="currentTime"></div><div id="currentDate"></div><div class="header-actions" aria-label="إجراءات الصفحة"><button id="refreshBtn" class="header-action-btn" type="button" title="تحديث البيانات" aria-label="تحديث البيانات"><i class="fa-solid fa-rotate"></i></button><button id="themeBtn" class="header-action-btn" type="button" title="الوضع الداكن" aria-label="تفعيل الوضع الداكن"><i class="fa-solid fa-moon"></i></button><button id="logoutBtn" class="header-action-btn logout-action" type="button" title="تسجيل الخروج" aria-label="تسجيل الخروج"><i class="fa-solid fa-right-from-bracket"></i></button></div></div></header>
+<section class="menu"><button class="menu-card active" data-page="dashboard"><i class="fa-solid fa-chart-pie"></i><span>لوحة القسم</span></button><button class="menu-card" data-page="employees"><i class="fa-solid fa-users"></i><span>الموظفون</span></button><button class="menu-card" data-page="reports"><i class="fa-solid fa-file-pdf"></i><span>التقارير</span></button></section>
+<main id="content"></main>
+<div class="pdf-modal" id="pdfModal" aria-hidden="true"><div class="pdf-modal-card"><div class="pdf-modal-header"><div><strong id="pdfModalTitle">عرض التقرير</strong><span>التقرير الأسبوعي</span></div><button type="button" class="pdf-close" id="pdfClose" aria-label="إغلاق"><i class="fa-solid fa-xmark"></i></button></div><iframe id="pdfFrame" title="عرض التقرير" src="about:blank"></iframe></div></div>
+</div>
+<script src="js/config.js"></script><script src="js/api.js?v=2"></script><script src="js/manager.js?v=2"></script><script src="js/manager-reports-home.js?v=1"></script><script src="js/logout-modal.js?v=2"></script><script src="js/theme.js?v=1"></script>
+<script>
+document.getElementById('refreshBtn')?.addEventListener('click',async function(){
+    if(this.disabled)return;
+    const btn=this;
+    btn.disabled=true;
+    btn.classList.add('is-refreshing');
+    try{
+        const active=document.querySelector('.menu-card.active')?.dataset.page||'dashboard';
+        if(typeof loadPage==='function') await loadPage(active);
+        else await new Promise(r=>setTimeout(r,500));
+    }catch(err){console.error(err)}
+    finally{
+        btn.classList.remove('is-refreshing');
+        btn.disabled=false;
+    }
+});
+</script>
+</body></html>

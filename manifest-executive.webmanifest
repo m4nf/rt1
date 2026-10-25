@@ -1,0 +1,17 @@
+{
+  "name": "مركز التقارير التنفيذي",
+  "short_name": "التقارير التنفيذي",
+  "description": "مركز مستقل لعرض ومتابعة التقارير الأسبوعية والشهرية",
+  "lang": "ar",
+  "dir": "rtl",
+  "start_url": "./executive-reports.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "theme_color": "#0b3156",
+  "background_color": "#f5f7fb",
+  "icons": [
+    {"src":"assets/logo.png","sizes":"192x192","type":"image/png","purpose":"any maskable"},
+    {"src":"assets/logo.png","sizes":"512x512","type":"image/png","purpose":"any maskable"}
+  ]
+}

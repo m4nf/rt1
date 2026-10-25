@@ -1,0 +1,17 @@
+{
+  "name": "نظام إدارة التقارير الأسبوعية",
+  "short_name": "التقارير الأسبوعية",
+  "description": "نظام إدارة ورفع ومتابعة التقارير الأسبوعية",
+  "lang": "ar",
+  "dir": "rtl",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "theme_color": "#0b3156",
+  "background_color": "#f5f7fb",
+  "icons": [
+    { "src": "assets/logo.png", "sizes": "192x192", "type": "image/png", "purpose": "any maskable" },
+    { "src": "assets/logo.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+  ]
+}

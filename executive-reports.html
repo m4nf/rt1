@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0b3156">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="مركز التقارير لموظفو الجمعية">
+<title>مركز التقارير لموظفو الجمعية</title>
+<link rel="manifest" href="manifest-executive.webmanifest">
+<link rel="apple-touch-icon" href="assets/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+<link rel="stylesheet" href="css/variables.css"><link rel="stylesheet" href="css/theme.css"><link rel="stylesheet" href="css/executive-reports.css?v=3"><link rel="stylesheet" href="css/pwa.css?v=3">
+</head>
+<body>
+<div class="executive-app">
+<header class="executive-header">
+  <div class="header-brand"><img src="assets/logo.png" alt="شعار الجمعية"><div><strong>مركز التقارير لموظفو الجمعية</strong><span>عرض ومتابعة تقارير جميع الأقسام</span></div></div>
+  <div class="header-actions"><button id="refreshBtn" title="تحديث"><i class="fa-solid fa-rotate"></i></button><button id="themeBtn" title="الوضع الداكن"><i class="fa-solid fa-moon"></i></button></div>
+</header>
+<main class="executive-main">
+<section class="hero"><div><span class="eyebrow">متابعة تنفيذية</span><h1>التقارير الشهرية والأسبوعية</h1><p>اختر الفترة والقسم والموظف، ثم افتح التقرير مباشرة داخل المنصة.</p></div><div class="hero-icon"><i class="fa-solid fa-file-circle-check"></i></div></section>
+<section class="filter-card">
+  <div class="filter-head"><div><strong>فلترة التقارير</strong><span>الوصول السريع إلى التقرير المطلوب</span></div><div class="filter-actions"><button id="missingBtn" class="missing-btn"><i class="fa-solid fa-user-clock"></i> لم يرفعوا التقرير</button><button id="clearFilters" class="clear-btn"><i class="fa-solid fa-rotate-left"></i> مسح</button></div></div>
+  <div class="period-switch"><button class="period-btn active" data-period="week"><i class="fa-solid fa-calendar-week"></i> الأسبوع</button><button class="period-btn" data-period="month"><i class="fa-solid fa-calendar-days"></i> الشهر</button><button class="period-btn" data-period="all"><i class="fa-solid fa-layer-group"></i> الكل</button></div>
+  <div class="filters-grid"><label><span>الفترة</span><select id="periodValue"><option value="">كل الفترات</option></select></label><label><span>القسم</span><select id="departmentFilter"><option value="">كل الأقسام</option></select></label><label class="search-field"><span>بحث</span><div><i class="fa-solid fa-magnifying-glass"></i><input id="searchFilter" placeholder="اسم الموظف أو اسم التقرير"></div></label></div>
+</section>
+<section class="summary-row"><div class="summary-card"><i class="fa-solid fa-file-pdf"></i><div><span>التقارير</span><strong id="totalReports">0</strong></div></div><div class="summary-card"><i class="fa-solid fa-building"></i><div><span>الأقسام</span><strong id="totalDepartments">0</strong></div></div><div class="summary-card"><i class="fa-solid fa-users"></i><div><span>الموظفون</span><strong id="totalEmployees">0</strong></div></div></section>
+<section id="departmentsView" class="departments-view"><div class="loading"><i class="fa-solid fa-spinner fa-spin"></i> جارٍ تحميل التقارير...</div></section>
+</main>
+</div>
+<div class="report-modal" id="reportModal" aria-hidden="true"><div class="report-modal-card"><div class="report-modal-header"><div><strong id="reportModalTitle">عرض التقرير</strong><span id="reportModalMeta">التقرير</span></div><button id="closeReport" title="إغلاق"><i class="fa-solid fa-xmark"></i></button></div><iframe id="reportFrame" title="عرض التقرير" src="about:blank"></iframe></div></div>
+<div class="missing-modal" id="missingModal" aria-hidden="true"><div class="missing-modal-card"><div class="missing-modal-header"><div><strong>الموظفون الذين لم يرفعوا</strong><span id="missingModalMeta">للأسبوع المحدد</span></div><button id="closeMissing" title="إغلاق"><i class="fa-solid fa-xmark"></i></button></div><div id="missingModalBody" class="missing-modal-body"></div></div></div>
+<script src="js/config.js"></script><script src="js/api.js?v=2"></script><script src="js/executive-reports.js?v=3"></script><script src="js/theme.js?v=1"></script><script src="js/pwa.js?v=4"></script>
+<script>if('serviceWorker'in navigator)window.addEventListener('load',()=>navigator.serviceWorker.register('./service-worker.js?v=22').catch(()=>{}));</script>
+</body></html>
