@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
@@ -23,9 +22,9 @@
 <link rel="stylesheet" href="css/app-notifications.css?v=2">
 
 <style>
-/* تنسيق نافذة إضافة المستخدم */
+/* تنسيق نافذة إضافة وتعديل المعلم */
 #employeeModal .modal-card {
-    width: min(520px, calc(100% - 24px));
+    width: min(560px, calc(100% - 24px));
     max-height: 90vh;
     overflow-y: auto;
 }
@@ -149,18 +148,31 @@
     </div>
 </div>
 
-<!-- نافذة إضافة وتعديل المستخدم -->
+<!-- نافذة إضافة وتعديل المعلم -->
 <div class="modal" id="employeeModal" aria-hidden="true">
     <div class="modal-card">
 
-        <h2 class="modal-title">إضافة مستخدم</h2>
+        <h2 class="modal-title">إضافة معلم</h2>
 
         <div class="form-grid">
+
+            <!-- اسم المعلم -->
+            <div class="form-group">
+                <label for="empName">اسم المعلم</label>
+                <input
+                    id="empName"
+                    name="name"
+                    type="text"
+                    autocomplete="name"
+                    placeholder="أدخل اسم المعلم"
+                    required
+                >
+            </div>
 
             <!-- المرحلة -->
             <div class="form-group">
                 <label for="empStage">المرحلة</label>
-                <select id="empStage" required>
+                <select id="empStage" name="stage" required>
                     <option value="">اختر المرحلة</option>
                     <option value="رياض الأطفال">رياض الأطفال</option>
                     <option value="الابتدائية">الابتدائية</option>
@@ -173,7 +185,7 @@
             <!-- القسم -->
             <div class="form-group">
                 <label for="empDepartment">القسم</label>
-                <select id="empDepartment" required>
+                <select id="empDepartment" name="department" required>
                     <option value="">اختر القسم</option>
                     <option value="الإدارية">الإدارية</option>
                     <option value="العلمية">العلمية</option>
@@ -191,6 +203,7 @@
                 <label for="empUsername">اسم المستخدم</label>
                 <input
                     id="empUsername"
+                    name="username"
                     type="text"
                     autocomplete="username"
                     placeholder="أدخل اسم المستخدم"
@@ -203,6 +216,7 @@
                 <label for="empPassword">الرقم السري</label>
                 <input
                     id="empPassword"
+                    name="password"
                     type="password"
                     autocomplete="new-password"
                     placeholder="أدخل الرقم السري"
@@ -214,7 +228,7 @@
 
         <div class="modal-actions">
             <button class="save-btn" id="saveEmployee" type="button">
-                حفظ المستخدم
+                حفظ المعلم
             </button>
 
             <button class="cancel-btn" id="closeModal" type="button">
